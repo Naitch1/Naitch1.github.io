@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Box</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            border: 1px solid #000;
+        }
+        #helloWorld {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">
+        <p id="helloWorld">Hello World</p>
+    </div>
+
+    <button onclick="increaseFontSize()">Increase Font Size</button>
+    <button onclick="changeFontColor()">Change Font Color</button>
+    <button onclick="increaseBoxWidth()">Increase Box Width</button>
+    <button onclick="increaseBoxHeight()">Increase Box Height</button>
+    <button onclick="changeBoxColor()">Change Box Color</button>
+
+    <script>
+        // Function to increase the font size of "Hello World"
+        function increaseFontSize() {
+            const helloWorld = document.getElementById("helloWorld");
+            let currentSize = parseInt(window.getComputedStyle(helloWorld, null).getPropertyValue('font-size'));
+            helloWorld.style.fontSize = (currentSize + 2) + 'px'; // Increase by 2px
+        }
+
+        // Function to change the font color of "Hello World"
+        function changeFontColor() {
+            const helloWorld = document.getElementById("helloWorld");
+            helloWorld.style.color = getRandomColor(); // Change to a random color
+        }
+
+        // Function to increase the box width
+        function increaseBoxWidth() {
+            const box = document.getElementById("box");
+            let currentWidth = parseInt(window.getComputedStyle(box, null).getPropertyValue('width'));
+            box.style.width = (currentWidth + 20) + 'px'; // Increase by 20px
+        }
+
+        // Function to increase the box height
+        function increaseBoxHeight() {
+            const box = document.getElementById("box");
+            let currentHeight = parseInt(window.getComputedStyle(box, null).getPropertyValue('height'));
+            box.style.height = (currentHeight + 20) + 'px'; // Increase by 20px
+        }
+
+        // Function to change the box color
+        function changeBoxColor() {
+            const box = document.getElementById("box");
+            box.style.backgroundColor = getRandomColor(); // Change to a random color
+        }
+
+        // Helper function to generate a random color
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+
+</body>
+</html>
