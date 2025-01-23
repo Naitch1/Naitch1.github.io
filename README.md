@@ -1,2 +1,2 @@
-# Naitch1.github.io
+# my website
 Website Design Assignment
